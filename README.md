@@ -11,11 +11,11 @@ Built using React + Vite.
 - Scrollable multi-grid layout
 
 ## Features
-Frontend: React
-Build Tool: Vite
-Styling: Inline CSS
-Canvas API: For whiteboard drawing
-Version Control: Git + GitHub
+-Frontend: React
+-Build Tool: Vite
+-Styling: Inline CSS
+-Canvas API: For whiteboard drawing
+-Version Control: Git + GitHub
 
 ## Run locally
 npm install
