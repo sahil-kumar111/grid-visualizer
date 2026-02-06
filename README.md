@@ -9,8 +9,8 @@ Built using React + Vite.
 - Whiteboard pen & eraser
 - Adjustable pen/eraser size
 - Scrollable multi-grid layout
-  
-##Tech Stack :
+
+## Features
 Frontend: React
 Build Tool: Vite
 Styling: Inline CSS
