@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+h1 {
+  margin: 0;
+}
+
+textarea, input {
+  font-family: inherit;
+}
