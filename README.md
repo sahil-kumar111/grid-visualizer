@@ -10,12 +10,12 @@ Built using React + Vite.
 - Adjustable pen/eraser size
 - Scrollable multi-grid layout
 
-## Features
--Frontend: React
--Build Tool: Vite
--Styling: Inline CSS
--Canvas API: For whiteboard drawing
--Version Control: Git + GitHub
+## Tech Stack
+- Frontend: React
+- Build Tool: Vite
+- Styling: Inline CSS
+- Canvas API: For whiteboard drawing
+- Version Control: Git + GitHub
 
 ## Run locally
 npm install
