@@ -62,17 +62,38 @@ const MAX_GRIDS = 20
 export function parseArrayInput(input) {
   if (!input.trim()) return []
 
-  const gridStrings = input
-    .split("\n")
-    .map(s => s.trim())
-    .filter(Boolean)
+  const lines = input.split("\n")
 
-  if (gridStrings.length > MAX_GRIDS) {
+  const gridsRaw = []
+  let current = []
+  let depth = 0
+
+  for (const line of lines) {
+    const openCount = (line.match(/\[/g) || []).length
+    const closeCount = (line.match(/\]/g) || []).length
+
+    depth += openCount
+
+    if (depth > 0) current.push(line)
+
+    depth -= closeCount
+
+    if (depth === 0 && current.length > 0) {
+      gridsRaw.push(current.join("\n"))
+      current = []
+    }
+  }
+
+  if (depth !== 0) return []
+
+  if (gridsRaw.length > MAX_GRIDS) {
     throw new Error("Too many grids")
   }
 
-  return gridStrings.map(parseSingleGrid)
+  return gridsRaw.map(parseSingleGrid)
 }
+
+
 
 function parseSingleGrid(str) {
   let data
@@ -87,7 +108,7 @@ function parseSingleGrid(str) {
     throw new Error("Invalid grid")
   }
 
-  // 1D array → convert to single-row grid
+
   if (Array.isArray(data) && !Array.isArray(data[0])) {
     if (data.length > MAX) throw new Error("Grid too large")
     return [normalizeRow(data, data.length)]
