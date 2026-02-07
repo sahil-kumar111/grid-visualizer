@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import Grid from "./components/Grid"
 import { parseInput } from "./utils/parseInput"
+import githubLogo from "./assets/github.png"
 
 function App() {
   const [text, setText] = useState("")
@@ -113,7 +114,8 @@ function App() {
             padding: "16px",
             borderRight: "2px solid #ddd",
             boxSizing: "border-box",
-            overflow: "hidden"   
+            overflow: "hidden",
+            position: "relative"
           }}
         >
           <h4>Input</h4>
@@ -170,6 +172,30 @@ function App() {
           </div>
 
           {error && <p style={{ color: "#555" }}>{error}</p>}
+          {/*  GITHUB LOGO (BOTTOM LEFT) */}
+          <a
+            href="https://github.com/sahil-kumar111/grid-visualizer"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              position: "absolute",
+              bottom: "14px",
+              left: "14px",
+              width: "42px",
+              height: "42px",
+              cursor: "pointer"
+            }}
+          >
+            <img
+              src={githubLogo}
+              alt="GitHub"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain"
+              }}
+            />
+          </a>
         </div>
 
         {/* RIGHT WHITEBOARD */}
