@@ -59,9 +59,6 @@
 const MAX = 100
 const MAX_GRIDS = 20
 
-// ======================================================
-// FORMAT TYPE 1 (EXISTING – PRESERVED LOGIC)
-// ======================================================
 export function parseArrayInput(input) {
   if (!input.trim()) return []
 
@@ -116,14 +113,7 @@ function normalizeRow(row, size) {
   return out
 }
 
-// ======================================================
-// FORMAT TYPE 2 (NEW – SPACE SEPARATED GRID)
-// ======================================================
-// Example:
-// [1 2 3,
-//  4 5 6]
 export function parseSpaceGridInput(input) {
-  // Live-typing safe: never throw
   if (!input || !input.trim()) return []
 
   const lines = input.split("\n")
@@ -132,7 +122,6 @@ export function parseSpaceGridInput(input) {
   let current = []
   let depth = 0
 
-  // 🔹 Step 1: group lines into [ ... ] blocks
   for (const line of lines) {
     const trimmed = line.trim()
     if (!trimmed) continue
@@ -146,15 +135,12 @@ export function parseSpaceGridInput(input) {
       current = []
     }
   }
-
-  // Still typing → incomplete block
   if (depth !== 0) return []
 
   if (blocks.length > MAX_GRIDS) return []
 
   const grids = []
 
-  // 🔹 Step 2: parse each block
   for (const block of blocks) {
     if (!block.startsWith("[") || !block.endsWith("]")) return []
 
